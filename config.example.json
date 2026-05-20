@@ -1,0 +1,41 @@
+{
+  "api": {
+    "pro": {
+      "key": "",
+      "model": "deepseek-chat",
+      "baseUrl": "https://api.deepseek.com",
+      "maxTokens": 8192,
+      "temperature": 0.85
+    },
+    "flash": {
+      "key": "",
+      "model": "deepseek-chat",
+      "baseUrl": "https://api.deepseek.com",
+      "maxTokens": 4096,
+      "temperature": 0.7
+    }
+  },
+  "骰子": {
+    "关系": {
+      "陌生人": 70,
+      "合作": 20,
+      "敌对": 10
+    },
+    "隐藏任务": {
+      "单人概率": 20,
+      "双方概率": 10
+    },
+    "事件": {
+      "掷骰间隔轮数": 15,
+      "大事件概率": 30,
+      "小事件概率": 70,
+      "大事件硬保底轮数": 50,
+      "小事件硬保底轮数": 30
+    }
+  },
+  "游戏": {
+    "历史消息保留条数": 20,
+    "游戏时长天数": 2,
+    "端口": 3460
+  }
+}
