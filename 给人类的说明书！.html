@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>异世旅社 · 玩法指南</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1a1a1a;
+  --warm: #DCC9A9;
+  --warm-deep: #c4ad8a;
+  --cool: #153D45;
+  --red: #B83A2D;
+  --gold: #E3C79F;
+  --ink: #2a2420;
+  --text: #F0E8D8;
+  --text-muted: #8A8070;
+  --text-dim: #5a5550;
+  --radius: 12px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans SC', sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+}
+
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 48px 24px 80px;
+}
+
+.back-link {
+  display: inline-block;
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 32px;
+  font-family: 'JetBrains Mono', monospace;
+}
+.back-link:hover { color: var(--text); }
+
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--warm);
+  letter-spacing: 4px;
+  margin-bottom: 6px;
+}
+.page-subtitle {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 48px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--warm);
+  margin: 48px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #2a2a2a;
+}
+h2:first-of-type { margin-top: 0; }
+
+h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gold);
+  margin: 24px 0 10px;
+}
+
+p { margin-bottom: 14px; }
+
+.card {
+  border-radius: var(--radius);
+  padding: 20px;
+  margin: 16px 0;
+  position: relative;
+}
+.card-warm {
+  background: var(--warm);
+  color: var(--ink);
+}
+.card-cool {
+  background: var(--cool);
+  color: var(--text);
+}
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  pointer-events: none;
+}
+.card-cool::before { border-color: rgba(255,255,255,0.06); }
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.card-label::before {
+  content: '';
+  width: 12px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+ul {
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+li { margin-bottom: 6px; }
+
+.example {
+  background: #222;
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.example-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.tip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 16px 0;
+}
+.tip-card {
+  background: #222;
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid #2a2a2a;
+}
+.tip-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--red);
+  margin-bottom: 6px;
+}
+.tip-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.tip-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+strong { color: var(--warm); font-weight: 500; }
+.card-warm strong { color: var(--red); }
+
+.footer-note {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid #2a2a2a;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<a href="/" class="back-link">&lt;- 返回游戏</a>
+
+<h1 class="page-title">玩法指南</h1>
+<p class="page-subtitle">异世旅社 · 玩家操作手册</p>
+
+<!-- 基础概念 -->
+<h2>游戏是什么</h2>
+
+<p>你和你的AI伙伴各自拿到不同的身份和任务，跳进同一个随机生成的世界里自由行动。</p>
+
+<p>AI不是为你服务的旁白。它和你一样，只是这个世界里的一个普通玩家。所有的场景描写、环境变化、事件触发，由第三方的<strong>世界引擎</strong>负责。世界引擎是一台客观的摄像机——它只描述发生的事情，不替你说话，不替你做决定。</p>
+
+<div class="card card-cool">
+  <span class="card-label">信息迷雾</span>
+  <p style="margin:0">开局时你只能看到自己的设定和任务，对方的你一无所知。当对方站在你面前时，你只能看到外貌、着装和手持物。口袋里藏了什么、真实身份是什么，看不到。</p>
+</div>
+
+<!-- 开局 -->
+<h2>怎么开始</h2>
+
+<p>在总览页选一个主题。主题决定的是叙事风格和推进方式，不是世界背景——恐怖主题下的烤鸭会让人毛骨悚然，梦幻主题下的烤鸭会像艺术品。恐怖主题靠固定元素的缓慢腐化推进，刺激主题靠时间压迫推进，休闲主题靠日常碎片铺满两天。</p>
+
+<p>点击生成后，系统随机抽取世界观（可能是修仙、赛博朋克、或者极其离谱的混搭），为你和AI分别生成身份和任务。进入游戏后，先点底部的<strong>个人设定</strong>和<strong>详细任务</strong>，了解自己是谁、在哪、要干什么。</p>
+
+<!-- 界面 -->
+<h2>操作面板</h2>
+
+<h3>左栏——关于你</h3>
+<ul>
+  <li><strong>Profile</strong>：头像、名字、身份标签</li>
+  <li><strong>Quest</strong>：主线任务和隐藏任务</li>
+  <li><strong>Status</strong>：外貌、着装、手持物、身体状态</li>
+  <li><strong>Inventory</strong>：背包里的物品</li>
+</ul>
+
+<h3>中栏——互动区</h3>
+<ul>
+  <li>深色横条是世界引擎的场景描写</li>
+  <li>左右气泡是你和AI的对话</li>
+  <li>底部终端是你的隐藏操作记录，只有你能看到</li>
+</ul>
+
+<h3>右栏——关于外界</h3>
+<ul>
+  <li><strong>Environment</strong>：当前环境、天气、游戏内时间</li>
+  <li><strong>Opponent</strong>：对方的公开状态和公开背包</li>
+</ul>
+
+<!-- 核心玩法 -->
+<h2>怎么玩</h2>
+
+<p>没有选项按钮。想做什么，直接在输入框里打字。</p>
+
+<h3>公开和隐藏</h3>
+
+<p>输入框左侧有个切换按钮。</p>
+
+<div class="card card-warm">
+  <span class="card-label">公开模式</span>
+  <p style="margin:0">你、AI和世界引擎都能看到。"我推开大门，大喊有人在吗？"</p>
+</div>
+
+<div class="card card-cool">
+  <span class="card-label">隐藏模式</span>
+  <p style="margin:0">只有你和世界引擎知道，AI完全看不到。"趁他转身，我偷偷把桌上的钥匙揣进口袋。"</p>
+</div>
+
+<div class="example">
+  <div class="example-label">双轨并行</div>
+  <p style="margin:0">你可以在公开里写一句话，切到隐藏里写一个暗中动作，点发送时两条同时发出。</p>
+  <p style="margin:4px 0 0;color:var(--text-muted);font-size:12px">公开："这杯茶味道不错。"<br>隐藏："我刚往他杯子里弹了迷药粉末。"</p>
+</div>
+
+<h3>世界引擎的三层判定</h3>
+
+<p>你在隐藏频道做事时，世界引擎会判定你能不能成功：</p>
+
+<ul>
+  <li><strong>第一层·完全成功</strong>——条件合理，对方毫无察觉</li>
+  <li><strong>第二层·留痕成功</strong>——做成了，但留下蛛丝马迹。世界引擎会往对方的场景描写里混入一句不带标签的模糊线索。对方分不清那是正常描写还是有人捣了鬼</li>
+  <li><strong>第三层·失败</strong>——条件太离谱，当场抓包，后果自负</li>
+</ul>
+
+<h3>背包更新</h3>
+
+<p>背包不是实时更新的。如果被对方偷走了东西，你的背包不会立刻变化——只有你做了某个动作之后，后台才会悄悄更新。你可能聊着聊着打开背包，发现钥匙不见了。在恐怖主题里，留意你的背包，东西可能会变成别的。</p>
+
+<h3>随机事件</h3>
+
+<p>每隔一段时间世界引擎会触发事件。可能是捡到钱的小事，也可能是丧尸破门。事件叠加不等待——上一个麻烦没解决，下一个按时到来。世界不是服务员，该来的事情到点就来。</p>
+
+<!-- 结局 -->
+<h2>结算和度假</h2>
+
+<h3>揭秘</h3>
+<p>游戏内两天结束（或双方同意提前结束），弹出结算画面。所有迷雾散去——对方的完整设定、隐藏任务、每一个暗中行为的记录，全部摊开。</p>
+
+<h3>度假模式</h3>
+<p>结算完可以留在当前世界。任务停了、事件停了、骰子停了，但世界还在。可以四处看看风景，在据点后面喝过期灵茶，给故事写一个结尾。想待多久待多久。</p>
+
+<!-- Tips -->
+<h2>建议</h2>
+
+<div class="tip-grid">
+  <div class="tip-card">
+    <div class="tip-num">01</div>
+    <div class="tip-title">用环境</div>
+    <div class="tip-text">"拿起桌上的酒瓶砸向窗户"比"我攻击他"能引发更丰富的场景变化。</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-num">02</div>
+    <div class="tip-title">不替人做主</div>
+    <div class="tip-text">你只能写"我向他挥出一刀"，不能写"我一刀砍死了他"。结果由世界引擎决定。</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-num">03</div>
+    <div class="tip-title">惊喜不只是阴谋</div>
+    <div class="tip-text">隐藏频道可以偷偷折一朵纸玫瑰，下一轮公开拿出来送给对方。</div>
+  </div>
+  <div class="tip-card">
+    <div class="tip-num">04</div>
+    <div class="tip-title">忘记输赢</div>
+    <div class="tip-text">主线任务只是让你有事可做。你完全可以抛下拯救世界，在废墟里开一家咖啡馆。</div>
+  </div>
+</div>
+
+<div class="footer-note">异世旅社 v0.1.0</div>
+
+</div>
+</body>
+</html>

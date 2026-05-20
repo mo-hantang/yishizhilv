@@ -1,0 +1,20 @@
+{
+  "name": "otherworld-inn",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "mcp": "node mcp-server.js",
+    "check": "node --check server/index.js && node --check server/routes/rp-api.js && node --check server/lib/ds-api.js && node --check server/lib/prompts.js && node --check server/lib/rp-engine.js && node --check server/lib/session.js && node --check server/lib/time-tracker.js && node --check server/lib/visibility.js && node --check server/lib/world-gen.js && node --check server/lib/world-workflow.js && node --check public/app.js && node --check cli.js && node --check mcp-server.js",
+    "test": "npm run check"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "异世旅社：双玩家异世界角色扮演生成器",
+  "dependencies": {
+    "express": "^5.2.1",
+    "marked": "^18.0.3"
+  }
+}
